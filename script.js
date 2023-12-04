@@ -63,8 +63,7 @@ window.onload = function() {
 // Send distribution arrays for rendering
 const distributeSolvable = (dropPiles, pickPile) =>{
 
-  console.log(dropPiles)
-  console.log(pickPile)
+ 
     // send solvable distribution for card distribution
     // showCardPiles(dropPiles[6], dropPiles[5], dropPiles[4], dropPiles[3], dropPiles[2], dropPiles[1], dropPiles[0], pickPile)
   }
@@ -136,18 +135,14 @@ let pileOnePositionObj = {
   'x': pileOnePosition.x,
   'y': pileOnePosition.y
 }
-// show pile one coordinates
-console.log(' pile one coordinates')
-console.log(pileOnePositionObj)
+
 
 let pileTwoPositionObj = {
   'pile_name':'pile-two',
   'x': pileTwoPosition.x,
   'y': pileTwoPosition.y
 }
-// show pile two coordinates
-console.log(' pile one coordinates')
-console.log(pileTwoPositionObj)
+
 
 
 
@@ -379,7 +374,7 @@ allPileElements.forEach(pile =>{
 if(pileName == 'pile-one'){
 // get card coords
 let cardCoords = pileOne.firstChild.getBoundingClientRect()
-console.log('card coordinates')
+
 
 // get card coordinates prior to card move
 cardX = cardCoords.x;
@@ -390,22 +385,10 @@ destinationX = pileTwoPositionObj.x
 destinationY = pileTwoPositionObj.y
 
 
-console.log(`
-card x coordinate: ${cardX}
-card y coordinate: ${cardY}
-
-
-destination x coordinate: ${destinationX}
-destination y coordinate: ${destinationY}
-`)
-
 xTranslation = destinationX - cardX + 17
 yTranslation = destinationY - cardY
 
-console.log(
-  `  translate X: ${xTranslation}
-  translate Y: ${yTranslation}
-  `)
+
 
   // move the card the distance to the empty pile
   pileOne.firstChild.style.transform = `translateX(${xTranslation}px)`
@@ -437,23 +420,10 @@ destinationY = pileOnePositionObj.y
 
 // 
 
-console.log(`
-card x coordinate: ${cardX}
-card y coordinate: ${cardY}
-
-
-destination x coordinate: ${destinationX}
-destination y coordinate: ${destinationY}
-`)
 
 xTranslation = destinationX - cardX + 17
 yTranslation = destinationY - cardY
 
-console.log(
-  `
-  translate X: ${xTranslation}
-  translate Y: ${yTranslation}
-  `)
 
     // the x translation is negative
 
@@ -634,8 +604,6 @@ cardPile.addEventListener('mousedown', (event) => {
   dragIdArray = []
 
 
-console.log('event target - this should be the drag card')
-console.log(event.target)
 
   // define pile children, children length, and clicked target
   let children = cardPile.childNodes // cards belonging to pile
@@ -680,7 +648,7 @@ let cardObj
 
 pileNavigation.forEach(pile =>{
   if(pile == parent.id){
-    console.log(pile)
+ 
 pileIndex = pileNavigation.indexOf(pile)
 // console.log('card objects in tracking subarray of origin pile (minus the moved card - unopened console element will show original number of cards in pile; but opened, the correct total will show')
 // console.log(dropPileTracker[pileIndex])
