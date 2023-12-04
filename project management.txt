@@ -1,0 +1,3 @@
+// CARD/IMAGE WRAPPER NEEDED? 
+Just realized you probably need to create a wrapper for the card image in order to be able to move it. 
+
