@@ -126,8 +126,9 @@ var movingCardsEl; // for the variables once cards are loaded
 
 
 // GET POSITION OF PILES RELATIVE TO THE VIEWPORT
-const pileOnePosition = pileOne.getBoundingClientRect()
-const pileTwoPosition = pileTwo.getBoundingClientRect()
+let pileOnePosition = pileOne.getBoundingClientRect()
+let pileTwoPosition = pileTwo.getBoundingClientRect()
+
 
 // object to keep x/y position of each pile:  I've used 'let' because, in the current iteration of the game, the piles shift slightly when a pile containing a single card has its card removed, or when an empty pile has a card added to it. But just checking these work. 
 let pileOnePositionObj = {
@@ -143,6 +144,29 @@ let pileTwoPositionObj = {
   'y': pileTwoPosition.y
 }
 
+
+
+// if window size changes and the x/y values of piles one and two will not represent the original values given above, the pile positions will need to be recalculated. the original objects which contain the x/y positions of each pile will also need to be recalculated, because
+window.addEventListener('resize', () =>{
+
+// get client positions for piles in resized window
+pileOnePosition = pileOne.getBoundingClientRect()
+pileTwoPosition = pileTwo.getBoundingClientRect()
+
+// get x/y values for pile one
+pileOnePositionObj = {
+  'pile_name':'pile-one',
+  'x': pileOnePosition.x,
+  'y': pileOnePosition.y
+}
+
+// get x/y values for pile two
+pileTwoPositionObj = {
+  'pile_name':'pile-two',
+  'x': pileTwoPosition.x,
+  'y': pileTwoPosition.y
+}
+})
 
 
 
